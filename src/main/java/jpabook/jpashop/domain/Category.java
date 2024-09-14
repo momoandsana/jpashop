@@ -39,6 +39,6 @@ public class Category {
     public void addChildCategory(Category child)
     {
         this.child.add(child); // 나에게 자식 추가
-        child.setParent(this); // 자식에게 부모(나) 추가
+        child.setParent(this); // 자식에게 부모(나) 추가, 현재 전달된 자식 하나에게만
     }
 }
