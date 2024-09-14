@@ -5,6 +5,8 @@ import jpabook.jpashop.domain.item.DeliveryStatus;
 import lombok.Getter;
 import lombok.Setter;
 
+import static jakarta.persistence.FetchType.*;
+
 @Entity
 @Getter @Setter
 public class Delivery {
@@ -14,7 +16,7 @@ public class Delivery {
     @Column(name="delivery_id")
     private Long id;
 
-    @OneToOne(mappedBy="delivery") // order 에서 delivery 필드로 인식. 여기는 거울. 조회만 가능. 비주인
+    @OneToOne(mappedBy="delivery",fetch= LAZY) // order 에서 delivery 필드로 인식. 여기는 거울. 조회만 가능. 비주인
     private Order order;
 
     @Embedded

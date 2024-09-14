@@ -25,4 +25,5 @@ public class Member {
     private List<Order> orders=new ArrayList<>(); // 1대다 관계이기 때문에 상대방을 리스트로 가짐
 //    양방향 관계이기 때문에 비주인인 member 쪽에도 order 에 대한 정보가 있음
 //    양방향 관계여도 여기서는 조회만 가능하고 수정은 관계의 주인인 order 에서만 가능
+//    생성자나 setter 가 아닌 필드 영역에서 초기화하는게 안전하다
 }
