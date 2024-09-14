@@ -1,21 +1,31 @@
 package jpabook.jpashop.repository;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jpabook.jpashop.domain.Member;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor // EntityManager 를 스프링이 자동 주입
 public class MemberRepository {
 
-    @PersistenceContext
-    private EntityManager em;
+//    @PersistenceContext // 원래는 이 방법이 맞음
+//    private EntityManager em;
+
+//    public MemberRepository(EntityManager em)
+//    {
+//        this.em=em;
+//    }
+
+    @Autowired // 스프링 데이터 jpa 에서 자동으로 생성자 생성
+    private final EntityManager em;
 
     public void save(Member member)
     {
-        em.persist(member);// jpa가 저장함
+        em.persist(member);// jpa가 저장함,영속성 컨텍스트에 객체 올림, member 의 id 가 생김. 아직 디비에 들어가지 않은 시점에서도
         // persist 를 하면 나중에 트랜잭션을 커밋하는 순간에 디비에 들어감(인서트)
     }
 
