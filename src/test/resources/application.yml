@@ -1,0 +1,23 @@
+#여기 경로 만들어서 application.yml 사용하면 테스트 환경에서는 main의 application.yml 이 적용되는게 아니라 여기의 application.yml 이 적용된다
+
+#spring:
+#  datasource:
+##    url: jdbc:h2:tcp://localhost/~/study/inflearn/spring_jpa_1/spring_jpa_1
+#    # 경로주의!! spring_jpa_1.mv.db 라는 파일이 만들어짐
+#    url: jdbc:h2:mem:test
+#    # 기존의 디비와 격리된 환경에서 테스트-> but 스프링 부트에서 여기에서 logging 을 제외한 부분을 주석처리하면 알아서 메모리 디비로 돌림
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create-drop
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.H2Dialect
+#        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug

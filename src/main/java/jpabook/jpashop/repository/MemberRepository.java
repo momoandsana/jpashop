@@ -46,7 +46,7 @@ public class MemberRepository {
 
     public List<Member> findByName(String name)
     {
-        return em.createQuery("select m from m where m.name=:name",Member.class)
+        return em.createQuery("select m from Member m where m.name=:name",Member.class)
                 .setParameter("name",name)
                 .getResultList();
     }// 이름으로 멤버 리스트 찾기, jpql 이용

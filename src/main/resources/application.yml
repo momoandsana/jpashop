@@ -1,13 +1,14 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost:9092/~/study/inflearn/spring_jpa_1
+    url: jdbc:h2:tcp://localhost/~/study/inflearn/spring_jpa_1/spring_jpa_1
+    # 경로주의!! spring_jpa_1.mv.db 라는 파일이 만들어짐
     username: sa
     password:
     driver-class-name: org.h2.Driver
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
