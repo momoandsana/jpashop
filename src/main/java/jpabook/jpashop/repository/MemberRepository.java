@@ -39,7 +39,7 @@ public class MemberRepository {
 
     public List<Member> findAll()
     {
-        return em.createQuery("select m from Member", Member.class)
+        return em.createQuery("select m from Member m", Member.class)
                 .getResultList(); // jpql 로 조회
         // jpql 은  테이블을 대상으로 쿼리하는게 아니라 객체(엔티티)를 대상으로 쿼리
     }// 목록으로 조회
