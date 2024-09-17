@@ -29,7 +29,7 @@ public class OrderController {
         List<Item> items=itemService.findItems();
 
         model.addAttribute("members",members);
-        model.addAttribute("items",items);
+        model.addAttribute("items",items); // 파라미터들을 바인딩해서 보냄
 
         return "order/orderForm";
     }
@@ -51,6 +51,13 @@ public class OrderController {
 
         return "order/orderList";
     }
+    /*
+    여기서는 @ModelAttribute("orderSearch")OrderSearch orderSearch 를 이용해서 객체 단위로 주고 받는다
+    모델 단위로 주고 받고 싶다면 해당 모델에 해당하는 모든 속성들을 입력 받고 보내줘야 한다
+    만약에 입력받지 않은 속성이 있는데 보내준다면 해당 속성에 null 이 들어간다
+
+    ModelAttribute 는 html 폼에서의 속성값과 서버 측 모델 객체의 필드명이 일치하면 스프링이 자동으로 바인딩한다
+     */
 
     @PostMapping("/orders/{orderId}/cancel")
     public String cancelOrder(@PathVariable("orderId") Long orderId)

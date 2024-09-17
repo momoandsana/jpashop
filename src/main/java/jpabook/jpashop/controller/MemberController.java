@@ -33,7 +33,7 @@ public class MemberController {
     // /members/new 가 같지만 이거는 post 이므로 다른 api 임
     public String create(@Valid MemberForm form, BindingResult result) {
         //valid 어노테이션은 폼 데이터의 유효성을 검증. form 안에는 NotEmpty 같은 어노테이션이 있어야 함
-        // member 객체가 아니라 memberForm 을 사용한는 이유 -> validation 같은 코드까지 member 에 추가하면 너무 지저분해짐
+        // member 객체가 아니라 memberForm 을 사용하는 이유 -> validation 같은 코드까지 member 에 추가하면 너무 지저분해짐
         // 핵심 비즈니스 로직 정도만 member 객체 안에 만들어
 
         if (result.hasErrors()) // 이름은 필수로 입력해야 하므로 없으면 에러가 생김

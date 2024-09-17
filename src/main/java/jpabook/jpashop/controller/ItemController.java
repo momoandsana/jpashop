@@ -55,7 +55,7 @@ public class ItemController
     public String list(Model model)
     {
         List<Item> items=itemService.findItems();
-        model.addAttribute("items",items);
+        model.addAttribute("items",items); // 디비에서 목록을 조회해서 model 에 넣어서 뷰한테 보낸다
         return "items/itemList"; // 단순 조회해서 아이템 목록을 보여줌
     }
 
@@ -98,7 +98,7 @@ public class ItemController
     /*
         주석처리된 부분(병합)
         여기서 book 은 디비에서 직접 꺼낸 값이 아니라 객체를 생성해서 알맞은 값들을 넣어주는 형식
-        디비에서 객체를 직접 꺼낸 것이 아니므로 아이디가 있고 디비에 저장되었던 느낌이 있지만 변경감지가 일어나지 않는 준영속 엔티티
+        디비에서 객체를 직접 꺼낸 것이 아니므로 아이디가 있고 디비에 저장되었던 느낌이 있지만 변경 감지가 일어나지 않는 준영속 엔티티
         수정사항이 생겨도 반영이 되지 않는다
         지금 위에 함수는 병합(억지로 준영속을 영속성으로 만들기) 방법이다
         saveItem 함수에서 item.getId()==null 이 아니면 em.merge(item) 으로 병합한다
